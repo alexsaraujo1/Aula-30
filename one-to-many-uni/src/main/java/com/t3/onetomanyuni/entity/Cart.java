@@ -30,6 +30,12 @@ public class Cart {
         }
     }
 
+    public int totalPrice(){
+        int totalPrice = 0;
+
+        return totalPrice;
+    }
+
     @Override
     public String toString() {
         return "Cart [id=" + id + ", color=" + color + "]";

@@ -20,11 +20,18 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        //Cria um carrinho com produtos
         createCart();
-        retrieveCart(1L);
-    }
 
-              //Criamos o método
+        // Retorna um carrinho pelo seu id e seus produtos 
+        retrieveCart(1L);
+
+        //retorna um produto pelo seu id
+        retrieveProduct(1);
+        retrieveProduct(3);
+
+
+    }
 
     public void createCart() {
 
@@ -76,6 +83,15 @@ public class DataLoader implements CommandLineRunner {
         cart.getCartProducts().forEach((product -> {
             System.out.println(product.toString());
         }));
+    }
+
+    public void retrieveProduct(int id){
+        Product product = productRepository.findById(id).get();
+
+        //Imprime o produto retornado
+        System.out.println("Print Product info: ");
+        System.out.println(product.toString());
+
     }
 
 }
